@@ -1,53 +1,94 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy - iSeki</title>
-<style>
-  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
-  h1, h2 { color: #2c3e50; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>iSeki — Support</title>
+  <meta name="description" content="Support page for iSeki — contact & help." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9aa4b2;--white:#f8fafc}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071025 0%, #071a2a 100%);color:var(--white);-webkit-font-smoothing:antialiased}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{width:100%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:28px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:20px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .box{background:rgba(255,255,255,0.02);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .info ul{padding-left:18px;margin:8px 0;color:var(--muted)}
+    label{display:block;font-size:13px;margin-bottom:6px}
+    input,textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);outline:none;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:flex;gap:8px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#06b6d4);border:none;color:#fff;font-weight:600;cursor:pointer}
+    .muted{color:var(--muted);font-size:13px}
+    footer{margin-top:14px;color:var(--muted);font-size:13px;text-align:center}
+    a.link{color:inherit;text-decoration:underline}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}.logo{width:48px;height:48px}}
+  </style>
 </head>
 <body>
-  <h1>Privacy Policy for iSeki</h1>
-  <p>Effective date: November 6, 2025</p>
-  <p>Thank you for using <strong>iSeki</strong>. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application.</p>
+  <main class="wrap">
+    <section class="card">
+      <header>
+        <div class="logo">IS</div>
+        <div>
+          <h1>iSeki — Support</h1>
+          <p class="lead">Website temporarily unavailable? Use the form to contact support or download official resources.</p>
+        </div>
+      </header>
 
-  <h2>1. Information We Collect</h2>
-  <p>iSeki does not collect any personally identifiable information without your consent. However, we may use third-party services such as Google AdMob or analytics tools that might collect anonymous usage data to improve the app experience.</p>
+      <div class="grid" style="margin-top:18px">
+        <div class="box info">
+          <h3 style="margin-top:0">Support & Resources</h3>
+          <p class="muted">Nếu app iSeki gặp lỗi, bạn có thể liên hệ trực tiếp với chúng tôi qua:</p>
+          <ul>
+            <li><strong>Email:</strong> <a class="link" href="mailto:lehoanganh.dev2809@gmail.com">support@anndev.space</a></li>
+            <li><strong>Facebook:</strong> <a class="link" href="#">https://www.facebook.com/poong0212/</a></li>
+            <li><strong>GitHub:</strong> <a class="link" href="#">https://github.com/kiyoshi847</a></li>
+          </ul>
 
-  <h2>2. Use of Information</h2>
-  <p>Any collected data (if applicable) is used solely to:</p>
-  <ul>
-    <li>Enhance app functionality and performance.</li>
-    <li>Display relevant advertisements (if enabled).</li>
-    <li>Improve user experience based on anonymous analytics.</li>
-  </ul>
+          <p class="muted">Tải xuống bản build hoặc file hỗ trợ (nếu có) sẽ được cung cấp sau khi bạn gửi yêu cầu. Mô tả chi tiết lỗi sẽ giúp chúng tôi khắc phục nhanh hơn.</p>
+        </div>
 
-  <h2>3. Third-Party Services</h2>
-  <p>Our app may use third-party services such as:</p>
-  <ul>
-    <li>Google AdMob (for advertisements)</li>
-    <li>Supabase (for data storage and user management)</li>
-    <li>OpenAI API (for AI-based information retrieval)</li>
-  </ul>
-  <p>These services may collect certain data in accordance with their own privacy policies.</p>
+        <aside class="box">
+          <h3 style="margin-top:0">Gửi yêu cầu hỗ trợ</h3>
+          <form name="support" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="support" />
 
-  <h2>4. Data Security</h2>
-  <p>We take reasonable measures to protect your data from unauthorized access, disclosure, or modification. However, please note that no method of data transmission over the Internet is 100% secure.</p>
+            <label for="name">Tên của bạn</label>
+            <input id="name" name="name" placeholder="Nguyễn Văn A" required />
 
-  <h2>5. Children’s Privacy</h2>
-  <p>Our app is not directed toward children under the age of 13. We do not knowingly collect personal information from children.</p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
 
-  <h2>6. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. Updates will be posted on this page with a revised effective date.</p>
+            <label for="subject">Tiêu đề</label>
+            <input id="subject" name="subject" placeholder="Mô tả ngắn về lỗi" required />
 
-  <h2>7. Contact Us</h2>
-  <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-  <p>Email: <a href="mailto:lehoanganh.dev2809@gmail.com">iseki.support@gmail.com</a></p>
+            <label for="message">Nội dung (mô tả chi tiết)</label>
+            <textarea id="message" name="message" placeholder="Mô tả lỗi, bước tái hiện, ảnh chụp màn hình (nếu có)..." required></textarea>
 
-  <p>Last updated: November 6, 2025</p>
+            <div style="margin-top:12px;display:flex;gap:8px;align-items:center;justify-content:space-between">
+              <button class="btn" type="submit">Gửi yêu cầu</button>
+              <div class="muted">Hoặc gửi qua email: <a class="link" href="mailto:support@anndev.space">support@anndev.space</a></div>
+            </div>
+          </form>
+          <p class="muted" style="margin-top:12px">Form sử dụng Netlify Forms. Nếu không dùng Netlify, form sẽ fallback sang gửi email qua mail client.</p>
+        </aside>
+      </div>
+
+      <footer>
+        <div class="muted">
+          © <span id="year"></span> iSeki — ANNDEV · <a class="link" href="privacy.html">Privacy Policy</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
