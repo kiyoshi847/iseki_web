@@ -1,94 +1,639 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>iSeki — Support</title>
-  <meta name="description" content="Support page for iSeki — contact & help." />
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9aa4b2;--white:#f8fafc}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071025 0%, #071a2a 100%);color:var(--white);-webkit-font-smoothing:antialiased}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
-    .card{width:100%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:28px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-    header{display:flex;gap:16px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:20px}
-    h1{margin:0;font-size:20px}
-    p.lead{margin:6px 0 18px;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    .box{background:rgba(255,255,255,0.02);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-    .info ul{padding-left:18px;margin:8px 0;color:var(--muted)}
-    label{display:block;font-size:13px;margin-bottom:6px}
-    input,textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);outline:none;font-size:14px}
-    textarea{min-height:120px;resize:vertical}
-    .row{display:flex;gap:8px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#06b6d4);border:none;color:#fff;font-weight:600;cursor:pointer}
-    .muted{color:var(--muted);font-size:13px}
-    footer{margin-top:14px;color:var(--muted);font-size:13px;text-align:center}
-    a.link{color:inherit;text-decoration:underline}
-    @media (max-width:880px){.grid{grid-template-columns:1fr}.logo{width:48px;height:48px}}
-  </style>
-</head>
-<body>
-  <main class="wrap">
-    <section class="card">
-      <header>
-        <div class="logo">IS</div>
-        <div>
-          <h1>iSeki — Support</h1>
-          <p class="lead">Website temporarily unavailable? Use the form to contact support or download official resources.</p>
-        </div>
-      </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>iSeki &mdash; Student Attendance App</title>
+    <meta
+      name="description"
+      content="iSeki — Student attendance management application. View your attendance records securely."
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --accent: #7c3aed;
+        --accent2: #06b6d4;
+        --muted: #9aa4b2;
+        --white: #f8fafc;
+        --border: rgba(255, 255, 255, 0.06);
+        --glass: rgba(255, 255, 255, 0.02);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial;
+        background: linear-gradient(180deg, #071025 0%, #071a2a 100%);
+        color: var(--white);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.7;
+        min-height: 100vh;
+      }
+      a {
+        color: var(--accent2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      a:hover {
+        color: var(--white);
+      }
 
-      <div class="grid" style="margin-top:18px">
-        <div class="box info">
-          <h3 style="margin-top:0">Support & Resources</h3>
-          <p class="muted">Nếu app iSeki gặp lỗi, bạn có thể liên hệ trực tiếp với chúng tôi qua:</p>
-          <ul>
-            <li><strong>Email:</strong> <a class="link" href="mailto:lehoanganh.dev2809@gmail.com">support@anndev.space</a></li>
-            <li><strong>Facebook:</strong> <a class="link" href="#">https://www.facebook.com/poong0212/</a></li>
-            <li><strong>GitHub:</strong> <a class="link" href="#">https://github.com/kiyoshi847</a></li>
+      /* Header */
+      .site-header {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+        background: rgba(7, 16, 37, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .site-header .inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--white);
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #fff;
+        font-size: 14px;
+      }
+      .brand-text {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .nav-links {
+        display: flex;
+        gap: 24px;
+      }
+      .nav-links a {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+
+      /* Hero */
+      .hero {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 80px 28px 60px;
+        text-align: center;
+      }
+      .hero-badge {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent);
+        background: rgba(124, 58, 237, 0.12);
+        padding: 5px 14px;
+        border-radius: 20px;
+        letter-spacing: 0.04em;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+      .hero h1 {
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        background: linear-gradient(90deg, var(--white) 30%, var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero .desc {
+        font-size: 16px;
+        color: var(--muted);
+        max-width: 540px;
+        margin: 0 auto 32px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      .btn-primary:hover {
+        opacity: 0.9;
+        color: #fff;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--white);
+      }
+
+      /* Features */
+      .features {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 28px 60px;
+      }
+      .features-title {
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .feature-card {
+        background: var(--glass);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 24px;
+        transition: border-color 0.2s;
+      }
+      .feature-card:hover {
+        border-color: rgba(124, 58, 237, 0.25);
+      }
+      .feature-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        margin-bottom: 14px;
+        background: rgba(124, 58, 237, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+      .feature-card h3 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .feature-card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* Contact section */
+      .contact-section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 28px 60px;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .contact-card {
+        background: var(--glass);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 28px;
+      }
+      .contact-card h2 {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .contact-card h2 .tag {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent);
+        background: rgba(124, 58, 237, 0.12);
+        padding: 3px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.04em;
+      }
+      .contact-info {
+        list-style: none;
+        padding: 0;
+      }
+      .contact-info li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .contact-info li:last-child {
+        border-bottom: none;
+      }
+      .contact-info .label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--white);
+        min-width: 72px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .contact-info a {
+        color: var(--accent2);
+      }
+
+      /* Form */
+      .form-group {
+        margin-bottom: 14px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--white);
+        outline: none;
+        font-size: 14px;
+        font-family: inherit;
+        transition: border-color 0.2s;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--accent);
+      }
+      .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(154, 164, 178, 0.4);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .form-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 4px;
+      }
+      .form-hint {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* Footer */
+      .site-footer {
+        text-align: center;
+        padding: 24px 28px;
+        border-top: 1px solid var(--border);
+      }
+      .site-footer p {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .site-footer a {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+      .site-footer a:hover {
+        color: var(--white);
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 8px;
+      }
+      .footer-links a {
+        font-size: 12px;
+      }
+
+      /* Divider */
+      .divider {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .divider hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0 0 48px;
+      }
+
+      @media (max-width: 700px) {
+        .hero {
+          padding: 50px 18px 40px;
+        }
+        .hero h1 {
+          font-size: 28px;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          gap: 14px;
+        }
+        .features,
+        .contact-section,
+        .divider {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a href="index.html" class="brand">
+          <div class="logo">IS</div>
+          <span class="brand-text">iSeki</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#contact">Support</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">Student Attendance App</div>
+      <h1>Manage Your Attendance,<br />Anytime, Anywhere</h1>
+      <p class="desc">
+        iSeki lets students securely check their personal attendance records.
+        Log in with your Student ID and Date of Birth to view your data &mdash;
+        only yours, always private.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+            />
+          </svg>
+          Contact Support
+        </a>
+        <a href="privacy.html" class="btn-outline">
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          Privacy Policy
+        </a>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="features-title">What iSeki Offers</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>Secure Login</h3>
+          <p>
+            Authenticate with your Student ID and Date of Birth. No passwords to
+            remember or reset.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128202;</div>
+          <h3>Attendance Tracking</h3>
+          <p>
+            View your personal attendance rate at a glance. Data is updated and
+            always reflects your latest records.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128737;</div>
+          <h3>Privacy First</h3>
+          <p>
+            Each student can only access their own data. No cross-access, no
+            tracking, no ads.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"><hr /></div>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2><span class="tag">INFO</span> Contact &amp; Resources</h2>
+          <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px">
+            If you encounter any issues with iSeki, feel free to reach out
+            through any of the channels below. We typically respond within 24
+            hours.
+          </p>
+          <ul class="contact-info">
+            <li>
+              <span class="label">Email</span>
+              <a href="mailto:lehoanganh.dev2809@gmail.com"
+                >lehoanganh.dev2809@gmail.com</a
+              >
+            </li>
+            <li>
+              <span class="label">Facebook</span>
+              <a
+                href="https://www.facebook.com/poong0212/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >facebook.com/poong0212</a
+              >
+            </li>
+            <li>
+              <span class="label">GitHub</span>
+              <a
+                href="https://github.com/kiyoshi847"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github.com/kiyoshi847</a
+              >
+            </li>
+            <li>
+              <span class="label">Operator</span>
+              ANNDEV
+            </li>
           </ul>
-
-          <p class="muted">Tải xuống bản build hoặc file hỗ trợ (nếu có) sẽ được cung cấp sau khi bạn gửi yêu cầu. Mô tả chi tiết lỗi sẽ giúp chúng tôi khắc phục nhanh hơn.</p>
         </div>
 
-        <aside class="box">
-          <h3 style="margin-top:0">Gửi yêu cầu hỗ trợ</h3>
+        <div class="contact-card">
+          <h2><span class="tag">FORM</span> Submit a Request</h2>
           <form name="support" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="support" />
 
-            <label for="name">Tên của bạn</label>
-            <input id="name" name="name" placeholder="Nguyễn Văn A" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  placeholder="Tanaka Taro"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+            </div>
 
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                id="subject"
+                name="subject"
+                placeholder="Brief description of the issue"
+                required
+              />
+            </div>
 
-            <label for="subject">Tiêu đề</label>
-            <input id="subject" name="subject" placeholder="Mô tả ngắn về lỗi" required />
+            <div class="form-group">
+              <label for="message">Details</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Describe the issue, steps to reproduce, screenshots if any..."
+                required
+              ></textarea>
+            </div>
 
-            <label for="message">Nội dung (mô tả chi tiết)</label>
-            <textarea id="message" name="message" placeholder="Mô tả lỗi, bước tái hiện, ảnh chụp màn hình (nếu có)..." required></textarea>
-
-            <div style="margin-top:12px;display:flex;gap:8px;align-items:center;justify-content:space-between">
-              <button class="btn" type="submit">Gửi yêu cầu</button>
-              <div class="muted">Hoặc gửi qua email: <a class="link" href="mailto:support@anndev.space">support@anndev.space</a></div>
+            <div class="form-footer">
+              <button class="btn-primary" type="submit">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+                Send Request
+              </button>
+              <span class="form-hint">Powered by Netlify Forms</span>
             </div>
           </form>
-          <p class="muted" style="margin-top:12px">Form sử dụng Netlify Forms. Nếu không dùng Netlify, form sẽ fallback sang gửi email qua mail client.</p>
-        </aside>
-      </div>
-
-      <footer>
-        <div class="muted">
-          © <span id="year"></span> iSeki — ANNDEV · <a class="link" href="privacy.html">Privacy Policy</a>
         </div>
-      </footer>
+      </div>
     </section>
-  </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
+    <footer class="site-footer">
+      <p>
+        &copy; <span id="year"></span> iSeki &mdash; ANNDEV. All rights
+        reserved.
+      </p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:lehoanganh.dev2809@gmail.com">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
